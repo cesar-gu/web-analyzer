@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://cesar-gu.github.io/web-analyzer/sitemap.xml
+
+# Crawl delay (opcional, para respetar servidor)
+Crawl-delay: 1
