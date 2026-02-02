@@ -7,9 +7,11 @@
       role="main"
     >
       <div class="w-full max-w-2xl">
-        <div class="text-center mb-12">
-          <h1 class="text-5xl font-bold text-white mb-4">Analizador Web</h1>
-          <p class="text-xl text-gray-300">
+        <div class="text-center mb-8 sm:mb-12">
+          <h1 class="text-3xl sm:text-5xl font-bold text-white mb-2 sm:mb-4">
+            Analizador Web
+          </h1>
+          <p class="text-md sm:text-xl text-gray-300">
             Analiza cualquier sitio web - Explicado para humanos
           </p>
         </div>
