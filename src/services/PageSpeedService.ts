@@ -7,12 +7,7 @@ import type {
 import { THRESHOLDS } from '../types/index';
 
 export class PageSpeedService {
-  private apiKey: string;
-  private apiUrl = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
-
-  constructor() {
-    this.apiKey = import.meta.env.VITE_GOOGLE_PAGESPEED_API_KEY || '';
-  }
+  private apiUrl = 'https://web-analyzer.cesargupe95.workers.dev';
 
   validateUrl(url: string): boolean {
     try {
@@ -37,22 +32,9 @@ export class PageSpeedService {
       throw new Error('Invalid URL format');
     }
 
-    if (!this.apiKey) {
-      throw new Error(
-        'API key not configured. Please set VITE_GOOGLE_PAGESPEED_API_KEY in .env'
-      );
-    }
-
     try {
       const params = new URLSearchParams();
       params.append('url', normalizedUrl);
-      params.append('key', this.apiKey);
-      params.append('strategy', 'mobile');
-      params.append('locale', 'es');
-      params.append('category', 'performance');
-      params.append('category', 'accessibility');
-      params.append('category', 'seo');
-      params.append('category', 'best-practices');
 
       const response = await axios.get<PageSpeedResponse>(
         `${this.apiUrl}?${params.toString()}`
@@ -65,7 +47,7 @@ export class PageSpeedService {
           error.response?.data?.error?.message ||
           error.message ||
           'Unknown error';
-        throw new Error(`PageSpeed API Error: ${errorMessage}`);
+        throw new Error(`Analysis API Error: ${errorMessage}`);
       }
       throw error;
     }

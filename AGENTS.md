@@ -4,7 +4,7 @@ Este documento explica la estructura del proyecto y cómo debe interactuar un ag
 
 ## Resumen
 
-- Proyecto: Web Analyzer — sitio estático (Astro + Vue) que analiza páginas usando la API de Google PageSpeed.
+- Proyecto: Web Analyzer — sitio estático (Astro + Vue) que analiza páginas usando una API de Lighthouse en Cloudflare Workers.
 - Propósito: Mostrar métricas y recomendaciones (Rendimiento, Accesibilidad, SEO, Buenas Prácticas) con explicaciones y acciones claras.
 
 ## Archivos y carpetas clave
@@ -19,7 +19,7 @@ Este documento explica la estructura del proyecto y cómo debe interactuar un ag
   - `ModalFullReport.vue` — Modal con el informe completo de Lighthouse y recomendaciones.
   - `RecommendationsAccordion.vue`, `AccordionSection.vue`, `RecommendationItem.vue` — Agrupan y renderizan recomendaciones por categoría.
 
-- `src/services/PageSpeedService.ts` — Servicio responsable de llamar a la API de PageSpeed y parsear la respuesta. Lee la clave de entorno `VITE_GOOGLE_PAGESPEED_API_KEY` (ver nota de seguridad más abajo).
+- `src/services/PageSpeedService.ts` — Servicio responsable de llamar a la API de Cloudflare Workers y parsear la respuesta de Lighthouse.
 
 - `src/types/index.ts` — Interfaces TypeScript para modelar respuestas de la API y estructuras de UI.
 
@@ -30,8 +30,6 @@ Este documento explica la estructura del proyecto y cómo debe interactuar un ag
 - `src/styles/global.css` — Imports globales de Tailwind y animaciones personalizadas.
 
 - `astro.config.mjs` — Configuración de Astro para build estático e integraciones.
-
-- `.env.example` — Plantilla de variables de entorno. Copiar a `.env` para desarrollo local.
 
 - `.nvmrc` — Versión de Node (20) usada por CI y desarrolladores. Ejecutar `nvm use` antes de comandos de Node.
 
@@ -45,18 +43,16 @@ Este documento explica la estructura del proyecto y cómo debe interactuar un ag
 2. Instalar dependencias:
    - `npm install --legacy-peer-deps`
 
-3. Crear `.env` (copiar desde `.env.example`) y definir `VITE_GOOGLE_PAGESPEED_API_KEY`.
-
-4. Ejecutar servidor de desarrollo:
+3. Ejecutar servidor de desarrollo:
    - `npm run dev`
 
-5. Para build de producción:
+4. Para build de producción:
    - `npm run build`
 
 ## Notas importantes para agentes y mantenedores
 
-- La clave de la API de PageSpeed debe mantenerse en variables de entorno y no debe ser commiteada. Use `.env` en desarrollo y GitHub Secrets en CI.
-- Atención: el archivo `src/services/PageSpeedService.ts` actualmente contiene un valor por defecto hardcodeado como fallback si no se encuentra `VITE_GOOGLE_PAGESPEED_API_KEY`. Esto es un riesgo de seguridad y debe eliminarse o reemplazarse por una configuración segura. Recomendación: lanzar un error si la variable de entorno no existe y documentar en `README.md`.
+- La aplicación usa una API externa en Cloudflare Workers (`https://web-analyzer.cesargupe95.workers.dev`) que recibe una URL como parámetro y devuelve el reporte de Lighthouse en formato JSON.
+- No se requieren variables de entorno ni claves de API. El servicio es serverless y delegado a la API externa.
 - El análisis se realiza en el cliente para permitir despliegues estáticos en GitHub Pages; `src/pages/api/analyze.ts` es un placeholder que no expone endpoint.
 - El proyecto evita caching deliberadamente para obtener datos frescos en cada petición.
 

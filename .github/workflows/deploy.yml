@@ -6,9 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  VITE_GOOGLE_PAGESPEED_API_KEY: ${{ secrets.VITE_GOOGLE_PAGESPEED_API_KEY }}
-
 permissions:
   contents: write
 
