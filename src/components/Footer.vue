@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <footer
     class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-gray-100 py-10 border-t border-purple-800/10"

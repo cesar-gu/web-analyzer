@@ -11,8 +11,8 @@
 
       <button
         class="w-full px-4 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-purple-500"
-        @click="showFullReport"
         aria-label="Ver reporte completo del análisis"
+        @click="showFullReport"
       >
         <svg class="w-5 h-5" fill="#fff" viewBox="0 0 24 24" aria-hidden="true">
           <path

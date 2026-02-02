@@ -9,50 +9,30 @@ on:
 env:
   VITE_GOOGLE_PAGESPEED_API_KEY: ${{ secrets.VITE_GOOGLE_PAGESPEED_API_KEY }}
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
-    name: Deploy
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-      deployments: write
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js with nvm
-        uses: nvm-sh/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
+          cache: npm
 
-      - name: Setup npm cache
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+      - run: npm install --legacy-peer-deps
 
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
-      - name: Run linter
-        run: npm run lint
+      - run: npm run lint
         continue-on-error: true
 
-      - name: Build project
-        run: npm run build
+      - run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.WRANGLER_API_TOKEN }}
-        env:
-          VITE_GOOGLE_PAGESPEED_API_KEY: ${{ secrets.VITE_GOOGLE_PAGESPEED_API_KEY }}
-
-      - name: Deploy to GitHub Pages (fallback)
         uses: peaceiris/actions-gh-pages@v3
-        if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
