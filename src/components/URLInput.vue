@@ -14,6 +14,7 @@
           v-model="urlInput"
           type="text"
           placeholder="Ingresa la URL del sitio (p. ej., ejemplo.com)"
+          autocapitalize="off"
           class="flex-1 px-4 py-3 bg-slate-800 border border-purple-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-colors duration-200"
           aria-describedby="url-error-message"
         />
