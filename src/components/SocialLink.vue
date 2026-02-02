@@ -5,7 +5,7 @@
     :title="title"
     target="_blank"
     rel="noopener noreferrer"
-    class="group relative w-10 h-10 bg-gray-800 hover:bg-purple-500 rounded-lg flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-400"
+    class="group relative w-10 h-10 bg-gray-700 hover:bg-purple-500 rounded-lg flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-400"
   >
     <!-- LinkedIn -->
     <svg

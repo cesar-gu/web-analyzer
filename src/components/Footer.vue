@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <footer
-    class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-gray-100 py-10 border-t border-purple-800/10"
+    class="bg-slate-800 text-gray-100 py-10 border-t border-purple-800/10"
     role="contentinfo"
   >
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,7 +39,7 @@
             <a
               :href="`mailto:${siteData.email}`"
               :aria-label="`Enviar email a ${siteData.email}`"
-              class="group relative w-10 h-10 bg-gray-800 hover:bg-purple-500 rounded-lg flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-400"
+              class="group relative w-10 h-10 bg-gray-700 hover:bg-purple-500 rounded-lg flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 focus:outline-none focus:ring-2 focus:ring-purple-400"
               :title="`Email: ${siteData.email}`"
             >
               <svg
