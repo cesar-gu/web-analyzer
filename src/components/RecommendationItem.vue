@@ -2,7 +2,9 @@
   <article class="bg-slate-700/30 border-l-2 border-purple-500 rounded p-3">
     <div class="flex flex-col gap-2">
       <div class="flex items-start justify-between gap-2">
-        <h5 class="font-semibold text-white break-words flex-1">{{ recommendation.title }}</h5>
+        <h5 class="font-semibold text-white break-words flex-1">
+          {{ recommendation.title }}
+        </h5>
         <span
           :class="impactBadgeClass"
           class="text-xs font-bold px-2 py-1 rounded whitespace-nowrap flex-shrink-0"
