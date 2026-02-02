@@ -1,19 +1,19 @@
 <template>
   <article class="bg-slate-700/30 border-l-2 border-purple-500 rounded p-3">
-    <div class="flex items-start justify-between">
-      <div class="flex-1">
-        <h5 class="font-semibold text-white">{{ recommendation.title }}</h5>
-        <p class="text-gray-300 text-sm mt-1">
-          {{ recommendation.description }}
-        </p>
+    <div class="flex flex-col gap-2">
+      <div class="flex items-start justify-between gap-2">
+        <h5 class="font-semibold text-white break-words flex-1">{{ recommendation.title }}</h5>
+        <span
+          :class="impactBadgeClass"
+          class="text-xs font-bold px-2 py-1 rounded whitespace-nowrap flex-shrink-0"
+          :aria-label="`Impacto: ${impactLabel}`"
+        >
+          {{ impactLabel }}
+        </span>
       </div>
-      <span
-        :class="impactBadgeClass"
-        class="text-xs font-bold px-2 py-1 rounded whitespace-nowrap ml-2"
-        :aria-label="`Impacto: ${impactLabel}`"
-      >
-        {{ impactLabel }}
-      </span>
+      <p class="text-gray-300 text-sm break-words">
+        {{ recommendation.description }}
+      </p>
     </div>
   </article>
 </template>
