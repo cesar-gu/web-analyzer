@@ -10,7 +10,7 @@
         <!-- About Section -->
         <div>
           <a
-            href="https://cesar-gu.github.io/portfolio/"
+            href="./"
             class="text-xl font-semibold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent inline-block"
             :title="siteData.brandName"
             aria-label="Ir al portfolio de César Gutiérrez"
@@ -62,6 +62,16 @@
         <p class="text-gray-400 text-xs">
           © {{ new Date().getFullYear() }} Analizador Web. Todos los derechos
           reservados.
+        </p>
+        <p class="text-xs text-gray-400 mt-1">
+          Hecho por
+          <a
+            href="https://cesar-gu.github.io/portfolio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-gradient-to-r from-blue to-accent-orange bg-clip-text font-semibold text-transparent transition-colors hover:opacity-90"
+            >cesargú</a
+          >.
         </p>
       </div>
     </div>

@@ -14,6 +14,20 @@
           <p class="text-md sm:text-xl text-gray-300">
             Analiza cualquier sitio web - Explicado para humanos
           </p>
+          <div
+            class="mt-2 flex items-center justify-center gap-1 text-sm italic text-gray-400"
+          >
+            <span>by</span>
+            <a
+              href="https://cesar-gu.github.io/portfolio/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-gradient-to-r from-blue to-accent-orange bg-clip-text font-bold text-transparent transition-colors hover:opacity-90"
+              aria-label="Portfolio de cesargú"
+              title="Portfolio: cesargú"
+              >cesargú
+            </a>
+          </div>
         </div>
 
         <div class="space-y-6">

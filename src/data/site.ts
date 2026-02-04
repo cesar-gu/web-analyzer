@@ -1,5 +1,5 @@
 export const siteData = {
-  brandName: 'cesargú',
+  brandName: 'Web Analyzer',
   email: 'cesargupe95@gmail.com',
   profiles: [
     {

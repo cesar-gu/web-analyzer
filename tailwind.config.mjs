@@ -7,6 +7,8 @@ export default {
         slate: {
           950: '#030712',
         },
+        blue: '#0066cc',
+        'accent-orange': '#ff9500',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',
